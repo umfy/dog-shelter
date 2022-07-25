@@ -6,7 +6,7 @@ import { tw } from '@twind'
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
-  let menuButton: any
+  let menuButton
   if (navbarOpen) {
     // X
     menuButton = (
