@@ -2,12 +2,16 @@
 import { h } from 'preact'
 import { tw } from '@twind'
 
-export default function Card(props: { title: string; description: string }) {
+export default function Card(props: {
+  title: string
+  description: string
+  reverse?: boolean
+}) {
   return (
     <div
       class={tw`
-      max-w-xl w-full mx-auto px-5
-      lg:(max-w-full flex)
+      max-w-xl w-full mx-auto p-4
+      lg:(max-w-full flex) ${props.reverse ? 'flex-row-reverse' : ''}
       `}
     >
       <div
@@ -19,11 +23,11 @@ export default function Card(props: { title: string; description: string }) {
       ></div>
       <div
         class={tw`
-        border(r b l gray-400 bg-white) rounded-b p-4 flex flex-col justify-between leading-normal w-full
+        border(r b l gray-400 bg-white transparent) rounded-b p-4 flex flex-col justify-between leading-normal w-full
         lg:(border(l-0 t gray-400) rounded-b-none rounded-r)
         `}
       >
-        <div class={tw`mb-8`}>
+        <div class={tw`mb-8  text-center lg:${props.reverse ? 'text-right' : 'text-left'}`}>
           <div class={tw`text-gray-900 font-bold text-xl mb-2`}>
             {props.title}
           </div>
