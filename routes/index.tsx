@@ -5,12 +5,13 @@ import { db } from '../main.ts'
 
 // ISLANDS
 import Navbar from '../islands/Navbar.tsx'
-import InstagramCarousel from '../islands/InstagramEmbeded.tsx'
-
 // COMPONENTS
-import TheTheader from '../components/organisms/TheHeader.tsx'
+import TheHeader from '../components/organisms/TheHeader.tsx'
 import Card from '../components/molecules/Card.tsx'
-import HorizontalLine from '../components/molecules/HorizontalLine.tsx'
+import HorizontalLine from '../components/atoms/HorizontalLine.tsx'
+import Headline from '../components/atoms/Headline.tsx'
+import InfoBar from '../components/atoms/InfoBar.tsx'
+import Footer from '../components/molecules/Footer.tsx'
 
 export default function Home() {
   // unknown to string
@@ -28,14 +29,23 @@ export default function Home() {
     <div>
       <Navbar />
       <div class={tw`container mx-auto`}>
-        <TheTheader />
+        <TheHeader />
+
+        <InfoBar title='Poznaj psy szukające domu'></InfoBar>
+
         <Card title={mainCard1[2]} description={mainCard1[3]} />
         <Card title={mainCard2[2]} description={mainCard2[3]} reverse={true} />
+
         <HorizontalLine></HorizontalLine>
+        <Headline title="Współpraca"></Headline>
+        <HorizontalLine></HorizontalLine>
+        <Card title={'Karma'} description={mainCard1[3]} />
+        <Card title={'Akcesoria'} description={mainCard1[3]} />
+        <Card title={'Logistyka'} description={mainCard1[3]} />
+        {/* <InstagramEmbeded url="https://www.instagram.com/p/Cc6C1Msr94J/"></InstagramEmbeded> */}
 
-        <InstagramCarousel url="ChCsu_VjpKu"></InstagramCarousel>
-
-          <HorizontalLine></HorizontalLine>
+        <HorizontalLine></HorizontalLine>
+        <Footer></Footer>
       </div>
     </div>
   )

@@ -1,20 +1,26 @@
 /** @jsx h */
 import { h } from 'preact'
-import { tw } from '@twind'
 
-export default function InstagramIsland(props: { url: string }) {
+export default function InstagramEmbeded(props: { url: string }) {
+  const pattern = new RegExp(/(instagram\.com\/.*?\/.*?)\//)
+  const match = props.url.match(pattern)
+  let instagramUrl = 'instagram.com/p/CY0tfw5I2hG'
+  if (match !== null && match.length > 1) {
+    instagramUrl = match[1]
+  }
+
   return (
     <div>
       <blockquote
         class="instagram-media"
-        data-instgrm-permalink={`https://www.instagram.com/p/${props.url}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+        data-instgrm-permalink={`https://www.${instagramUrl}/?utm_source=ig_embed&amp;utm_campaign=loading`}
         data-instgrm-version="14"
         style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"
       >
         <div style="padding:16px;">
           {' '}
           <a
-            href={`https://www.instagram.com/p/${props.url}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+            href={`https://www.${instagramUrl}/?utm_source=ig_embed&amp;utm_campaign=loading`}
             style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
             target="_blank"
           >
@@ -89,18 +95,18 @@ export default function InstagramIsland(props: { url: string }) {
           </a>
           <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
             <a
-              href={`https://www.instagram.com/p/${props.url}/?utm_source=ig_embed&amp;utm_campaign=loading`}
+              href={`https://www.${instagramUrl}/?utm_source=ig_embed&amp;utm_campaign=loading`}
               style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
               target="_blank"
             >
-              A post shared by Marta Kożuchowska (@o_oezu)
+              A post shared by Fundacja Kejsersi
             </a>
           </p>
         </div>
       </blockquote>{' '}
       <script async src="//www.instagram.com/embed.js"></script>
+    {/* <iframe src={`https://www.${instagramUrl}/embed`} width="400" height="480" frameBorder="0" scrolling="no" allowTransparency={true}></iframe> */}
     </div>
   )
 }
 
-// <iframe src="https://www.instagram.com/p/CfvlfrqPvRO/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>

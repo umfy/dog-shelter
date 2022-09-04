@@ -43,10 +43,9 @@ export default function Navbar() {
 
   const mainURL = 'http://localhost:8000'
   const navigation = [
-    { name: 'Dashboard', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
+    { name: 'Psy poszukujące domu', href: '#', current: true },
+    { name: 'Adopcyjne historie', href: '#', current: false },
+    { name: 'O nas', href: '#', current: false },
   ]
   return (
     <nav
